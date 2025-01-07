@@ -1,0 +1,58 @@
+
+# -*- coding: utf-8 -*-
+
+# pip install simple_draw
+
+import simple_draw as sd
+sd.resolution = 1200,600
+# нарисовать треугольник из точки (300, 300) с длиной стороны 200
+
+
+
+
+# angle= 90
+# lenght = 200
+# next_point = tree(point = point , angle= angle,lenght=lenght)
+# angle = angle- 30
+# lenght = lenght * 0.75
+# next_point = tree(point = next_point ,angle= angle,lenght=lenght)
+# angle = angle - 30
+# lenght = lenght * 0.75
+# next_point = tree(point=next_point,angle = angle,lenght= lenght)
+# angle = angle - 30
+# lenght = lenght * 0.75
+# next_point = tree(point=next_point,angle = angle,lenght= lenght)
+
+
+# angle_0 = 90
+# lenght_0 = 200
+# point_0 = tree(point=point,angle=angle_0,lenght=lenght_0)
+#
+# angle_next = angle_0
+# lenght_next = lenght_0
+# next_point = point_0
+#
+# while lenght_next > 10:
+#     next_point = tree(point = next_point , angle= angle_next,lenght = lenght_next)
+#     angle_next = angle_next - 30
+#     lenght_next = lenght_next * 0.75
+point = sd.get_point(300, 5)
+
+def tree(point,angle,lenght,delta):
+    if lenght < 1:
+        return
+    v1 = sd.get_vector(start_point=point, angle=angle, length=lenght,width=3)
+    v1.draw()
+    next_point = v1.end_point
+    next_lenght = lenght * 0.75
+    next_angle = angle - delta
+    tree(point=next_point,angle=next_angle,lenght=next_lenght,delta=delta)
+
+for lenght in range(50,500,10):
+    for delta in range(30,60,10):
+        tree(point=point,angle=90,lenght=lenght,delta=delta)
+for lenght in range(50,500,10):
+    for delta in range(-60,-30,10):
+        tree(point=point,angle=90,lenght=lenght,delta=delta)
+
+sd.pause()

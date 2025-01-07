@@ -1,0 +1,34 @@
+
+# -*- coding: utf-8 -*-
+
+# (цикл for)
+import random
+import simple_draw as sd
+sd.resolution = (1200,1000)
+i = 0
+def smile():
+    radius = 50
+    COLOR_RED = (255, 0, 0)
+    COLOR_BLUE = (0, 0, 255)
+    x = random.randint(1 + radius,1000- radius)
+    y = random.randint(1 + radius,1000 - radius)
+    center_circle = sd.get_point(x,y)
+    sd.circle(center_position=center_circle,radius=radius,width=4)
+    # круг
+    left_line = sd.get_point(center_circle.x - 15 , center_circle.y - 20)
+    right_line = sd.get_point(center_circle.x + 15, center_circle.y - 20)
+    sd.line(left_line,right_line,color= COLOR_RED ,width=4)
+    # нижняя часть улыбки
+    sd.line(sd.get_point(center_circle.x - 20,center_circle.y - 5), left_line , color= COLOR_RED,width= 4)
+    # левая часть улыбки
+    sd.line(right_line, sd.get_point(center_circle.x + 20,center_circle.y - 5), color=COLOR_RED,width=4)
+    sd.circle(center_position=sd.get_point(center_circle.x - 20,center_circle.y + 5),radius=5,color=COLOR_BLUE,width=4)
+    sd.circle(center_position=sd.get_point(center_circle.x + 20,center_circle.y + 5),radius=5,color=COLOR_BLUE ,width=4)
+    return center_circle
+
+while i <= 10:
+
+    print(smile())
+    i += 1
+
+sd.pause()

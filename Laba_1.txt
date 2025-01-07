@@ -1,0 +1,18 @@
+sites = {"Moscov" : (550,550) ,
+"London" : (700,500) ,
+"Berlin" : (990, 200)}
+
+moscov = sit["Moscov"]
+london = sit["London"]
+berlin = sit["Berlin"]
+moscov_london = ((moscov[0] - london[0])**2 + (moscov[1] - london[1])**2)
+moscov_berlin = ((moscov[0] - berlin[0])**2 + (moscov[1] - berlin[1])**2)
+london_berlin = ((london[0] - berlin[0])**2 + (london[1] - berlin[1])**2)
+distation = dict()
+distation["Moscov"] = {}
+distation["London"] = {}
+distation["Moscov"]["London"] = moscov_london
+distation["Moscov"]["Berlin"] = moscov_berlin
+distation["London"]["Berlin"] = london_berlin
+distation["London"]["Moscov"] = moscov_london
+print(distation)

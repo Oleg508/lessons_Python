@@ -1,0 +1,52 @@
+
+# -*- coding: utf-8 -*-
+
+# Есть словарь кодов товаров
+
+goods = {
+    'Лампа': '12345',
+    'Стол': '23456',
+    'Диван': '34567',
+    'Стул': '45678',
+}
+
+# Есть словарь списков количества товаров на складе.
+
+store = {
+    '12345': [
+        {'quantity': 27, 'price': 42},
+    ],
+    '23456': [
+        {'quantity': 22, 'price': 510},
+        {'quantity': 32, 'price': 520},
+    ],
+    '34567': [
+        {'quantity': 2, 'price': 1200},
+        {'quantity': 1, 'price': 1150},
+    ],
+    '45678': [
+        {'quantity': 50, 'price': 100},
+        {'quantity': 12, 'price': 95},
+        {'quantity': 43, 'price': 97},
+    ],
+}
+
+
+for name_product in goods:
+    id_product = goods[name_product]
+    quantiti_product = 0
+    cost_product = 0
+    for product in store[id_product]:
+        quantiti_product += product['quantity']
+        cost_product += product['quantity'] * product['price']
+    print(f"{name_product} - кол-во {quantiti_product} шт , сумма {cost_product} рубл")
+
+
+
+
+
+
+
+
+
+

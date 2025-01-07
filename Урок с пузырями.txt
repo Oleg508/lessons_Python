@@ -1,0 +1,24 @@
+
+import simple_draw as sd
+import random
+sd.resolution = (1200,1000)
+
+def bubble(point,step,color):
+    radius = 50
+    for _ in range(3):
+        sd.circle(point, radius, color, width=2)
+        radius += step
+
+# for x in range(100,1001,100):
+#     for y in range(100,301,100):
+#         point = sd.get_point(x, y)
+#         bubble(point,2)
+
+for _ in range(100):
+    point = sd.random_point()
+
+    step = random.randint(2,10)
+    color = random.randint(1,1000000000)
+    bubble(point,step,color)
+
+sd.pause()
